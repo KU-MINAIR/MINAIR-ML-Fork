@@ -16,7 +16,7 @@ for file in os.listdir("../crawling/location_keyword"):
         lines = f.readlines()
         lines = list(map(lambda s: s.strip(), lines))
         for line in lines:
-            kor_str = re.sub(r"[^ㄱ-ㅣ가-힣\s]", "", line) # 한글만 추출
+            kor_str = re.sub(r"[^가-힣\s]", "", line) # 한글만 추출
             result = kiwi.analyze(kor_str)
             for token, pos, _, _ in result[0][0]:
                 if len(token) != 1 and pos.startswith('N'):
